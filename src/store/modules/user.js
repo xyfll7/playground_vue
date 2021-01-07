@@ -1,0 +1,38 @@
+
+// import api from '@/api'
+import { user } from './types'
+import { getToken, setToken, removeToken } from '@/utils/token'
+
+const state = {
+    token: getToken(),
+}
+
+const mutations = {
+    [user.SET_TOKEN](state, token) {
+        state.token = token
+    }
+}
+
+const actions = {
+    async login({ commit }, userInfo) {
+        // const res = await api.login(userInfo)
+        const res = {token:"有token"}
+        console.log("sss",res,userInfo)
+        setToken(res.token)
+        commit(user.SET_TOKEN, res.token)
+        return res.token ? true : false
+    },
+    async resetToken({ commit }) {
+        console.log("resetToken success!")
+        commit(user.SET_TOKEN, '')
+        removeToken()
+        return true
+    }
+}
+
+export default {
+    namespaced: true,
+    state,
+    mutations,
+    actions
+}

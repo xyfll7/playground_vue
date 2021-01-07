@@ -1,0 +1,16 @@
+{
+  "id": "2264227",
+  "name": "jimujia",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2077587",
+      "name": "退出",
+      "font_class": "tuichu",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    }
+  ]
+}
