@@ -6,42 +6,32 @@
     class="el-menu-vertical-demo"
     @open="handleOpen"
     @close="handleClose"
+    @select="handleSelect"
     router
   >
-    <el-menu-item index="/pages/quotationMng">
-      <span slot="title">报价管理</span>
-    </el-menu-item>
-    <el-submenu index="/pages/projectMng">
-      <template slot="title"><span>项目管理</span> </template>
-      <el-menu-item index="/pages/projectMng/AcontractMng/?type=1">签约管理</el-menu-item>
-      <el-menu-item index="/pages/projectMng/BmaterialSelectionMng">选材管理</el-menu-item>
-      <el-menu-item index="/pages/projectMng/CbudgetMng">预算管理</el-menu-item>
-      <el-menu-item index="/pages/projectMng/DprojectScheduling">项目排期</el-menu-item>
-      <el-menu-item index="/pages/projectMng/EprojectImplement">项目实施</el-menu-item>
-      <el-menu-item index="/pages/projectMng/FchangeMng">变更管理</el-menu-item>
-      <el-menu-item index="/pages/projectMng/GexaminationMng">审批管理</el-menu-item>
-    </el-submenu>
-
     <el-menu-item index="/pages/materialMng">
       <span slot="title">材料管理</span>
     </el-menu-item>
     <el-menu-item index="/pages/manualMng">
       <span slot="title">人工管理</span>
     </el-menu-item>
-    <el-submenu index="/pages/systemSetting">
-      <template slot="title"><span>系统设置</span> </template>
-      <el-menu-item index="/pages/systemSetting/userMng">用户管理</el-menu-item>
-      <el-menu-item index="/pages/systemSetting/roleMng">角色管理</el-menu-item>
-      <el-menu-item index="/pages/systemSetting/passwordMng">密码管理</el-menu-item>
-    </el-submenu>
   </el-menu>
 </template>
 
 <script>
+
 export default {
+  created() {
+  },
+
   methods: {
+
     handleOpen() {},
     handleClose() {},
+    handleSelect() {
+     
+    },
+
   },
 };
 </script>

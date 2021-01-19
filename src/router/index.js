@@ -33,81 +33,8 @@ export const constantRoutes = [
     name: 'pages',
     meta: { title: '仪表板' },
     component: () => import('@/views/pages'),
-    redirect: '/pages/quotationMng',
+    redirect: '/pages/materialMng',
     children: [
-      {
-        path: 'quotationMng',
-        name: 'quotationMng',
-        meta: { title: '报价管理' },
-        component: () => import('@/views/pages/quotationMng'),
-        redirect: '/pages/quotationMng/mainpage',
-        children:[
-          {
-            path: 'mainpage',
-            name: '报价管理',
-            meta: { title: '签约管理' },
-            component: () => import('@/views/pages/quotationMng/mainpage'),
-          },
-          {
-            path: '/quotationDetails',
-            name: '报价详情',
-            meta: { title: '签约管理' },
-            component: () => import('@/views/pages/quotationMng/quotationDetails'),
-          },
-        ]
-      },
- 
-      {
-        path: 'projectMng',
-        name: 'projectMng',
-        meta: { title: '项目管理' },
-        component: () => import('@/views/pages/projectMng'),
-        redirect: '/pages/projectMng/AcontractMng',
-        children: [
-          {
-            path: 'AcontractMng',
-            name: 'AcontractMng',
-            meta: { title: '签约管理' },
-            component: () => import('@/views/pages/projectMng/AcontractMng'),
-          },
-          {
-            path: 'BmaterialSelectionMng',
-            name: 'BmaterialSelectionMng',
-            meta: { title: '选材管理' },
-            component: () => import('@/views/pages/projectMng/BmaterialSelectionMng'),
-          },
-          {
-            path: 'CbudgetMng',
-            name: 'CbudgetMng',
-            meta: { title: '预算管理' },
-            component: () => import('@/views/pages/projectMng/CbudgetMng'),
-          },
-          {
-            path: 'DprojectScheduling',
-            name: 'DprojectScheduling',
-            meta: { title: '项目排期' },
-            component: () => import('@/views/pages/projectMng/DprojectScheduling'),
-          },
-          {
-            path: 'EprojectImplement',
-            name: 'EprojectImplement',
-            meta: { title: '项目实施' },
-            component: () => import('@/views/pages/projectMng/EprojectImplement'),
-          },
-          {
-            path: 'FchangeMng',
-            name: 'FchangeMng',
-            meta: { title: '变更管理' },
-            component: () => import('@/views/pages/projectMng/FchangeMng'),
-          },
-          {
-            path: 'GexaminationMng',
-            name: 'GexaminationMng',
-            meta: { title: '审批管理' },
-            component: () => import('@/views/pages/projectMng/GexaminationMng'),
-          },
-        ]
-      },
       {
         path: 'materialMng',
         name: 'materialMng',
@@ -119,33 +46,6 @@ export const constantRoutes = [
         name: 'manualMng',
         meta: { title: '人工管理' },
         component: () => import('@/views/pages/manualMng'),
-      },
-      {
-        path: 'systemSetting',
-        name: 'systemSetting',
-        meta: { title: '系统设置' },
-        component: () => import('@/views/pages/systemSetting'),
-        redirect: '/pages/systemSetting/userMng',
-        children: [
-          {
-            path: 'userMng',
-            name: '用户管理',
-            meta: { title: '用户管理' },
-            component: () => import('@/views/pages/systemSetting/userMng'),
-          },
-          {
-            path: 'roleMng',
-            name: '用户管理',
-            meta: { title: '用户管理' },
-            component: () => import('@/views/pages/systemSetting/roleMng'),
-          },
-          {
-            path: 'passwordMng',
-            name: '用户管理',
-            meta: { title: '用户管理' },
-            component: () => import('@/views/pages/systemSetting/passwordMng'),
-          },
-        ]
       },
     ]
   }
@@ -178,17 +78,16 @@ router.beforeEach(async (to, from, next) => {
     NProgress.done()
   } else {
     if (to.name === 'login' && getToken()) {
-      console.log("1111")
       next({ name: from.name })
     } else {
-      console.log("2222")
       next()
     }
     NProgress.done()
   }
 })
 
-router.afterEach(() => {
+router.afterEach((e) => {
+  document.title = `${e.meta.title}-后台`
   NProgress.done()
 })
 

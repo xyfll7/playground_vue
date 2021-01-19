@@ -14,16 +14,14 @@ const mutations = {
 }
 
 const actions = {
-    async login({ commit }, userInfo) {
+    async login({ commit }, ) {
         // const res = await api.login(userInfo)
         const res = {token:"有token"}
-        console.log("sss",res,userInfo)
         setToken(res.token)
         commit(user.SET_TOKEN, res.token)
         return res.token ? true : false
     },
     async resetToken({ commit }) {
-        console.log("resetToken success!")
         commit(user.SET_TOKEN, '')
         removeToken()
         return true
@@ -31,7 +29,6 @@ const actions = {
 }
 
 export default {
-    namespaced: true,
     state,
     mutations,
     actions

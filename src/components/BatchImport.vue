@@ -60,11 +60,10 @@ export default {
     };
   },
   methods: {
-    handleRemove(file, fileList) {
-      console.log(file, fileList);
+    handleRemove() {
     },
-    handlePreview(file) {
-      console.log(file);
+    handlePreview() {
+
     },
     handleExceed(files, fileList) {
       this.$message.warning(

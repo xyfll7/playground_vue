@@ -44,15 +44,14 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["user/login"]),
+    ...mapActions(["login"]),
     submitForm(formName) {
       this.$refs[formName].validate(async (valid) => {
         if (valid) {
-         if(await this["user/login"](this.ruleForm)) {
+         if(await this["login"](this.ruleForm)) {
             this.$router.replace({ path: '/pages' })
          }
         } else {
-          console.log("error submit!!");
           return false;
         }
       });

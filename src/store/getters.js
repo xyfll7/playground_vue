@@ -14,7 +14,8 @@ const getters = {
       store.dispatch('getJudges')
     }
     return state.judge.judges
-  }
+  },
+  visitedViews: state => state.tags.visitedViews
 }
 
 export default getters

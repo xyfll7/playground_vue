@@ -17,10 +17,11 @@
 <script>
 import { mapActions } from "vuex";
 export default {
+ 
   methods: {
-    ...mapActions(['user/resetToken']),
+    ...mapActions(['resetToken']),
     logout() {
-      if(this['user/resetToken']()) { this.$router.replace({ path: '/' })}
+      if(this['resetToken']()) { this.$router.replace({ path: '/' })}
     },
   },
 };
